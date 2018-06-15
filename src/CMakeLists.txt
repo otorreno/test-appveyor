@@ -7,6 +7,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.9.6)
 PROJECT(TEST_APPVEYOR_LIB)
 
+FIND_PACKAGE(Boost REQUIRED)
+
 FIND_PACKAGE(Eigen3 CONFIG REQUIRED)
 
 # Compile with C++11 support.
@@ -26,12 +28,14 @@ ADD_LIBRARY(${TEST_APPVEYOR_LIB} STATIC ${TEST_APPVEYOR_LIB_CODE} )
 # Declare include directories
 TARGET_INCLUDE_DIRECTORIES(${TEST_APPVEYOR_LIB} PUBLIC
                            $<BUILD_INTERFACE:${TEST_APPVEYOR_LIB_INC}>
-                           $<INSTALL_INTERFACE:${KHIVA_INSTALL_INC_DIR}>)
+                           $<INSTALL_INTERFACE:${KHIVA_INSTALL_INC_DIR}>
+                           ${Boost_INCLUDE_DIRS})
 
 
 # Declare compilation libraries
 TARGET_LINK_LIBRARIES(${TEST_APPVEYOR_LIB}
                 Eigen3::Eigen
+                ${Boost_LIBRARIES}
                 ${CMAKE_DL_LIBS})
 
 # Add metadata
