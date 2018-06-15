@@ -4,10 +4,11 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include <Eigen/EigenValues>
+#include <gtest/gtest.h>
+#include <test-appveyor.h>
 
-int add(int, int);
+TEST(TestsBoostTStudent, Pvalue) {
+    float calculated = pvalue(2, 2.0f);
 
-Eigen::scomplex *eigVals(float coeffs[], int n);
-
-float pvalue(long df, float test);
+    ASSERT_NEAR(calculated, 0.183503f, 1e-3f);
+}

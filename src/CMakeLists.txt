@@ -26,8 +26,7 @@ ADD_LIBRARY(${TEST_APPVEYOR_LIB} STATIC ${TEST_APPVEYOR_LIB_CODE} )
 # Declare include directories
 TARGET_INCLUDE_DIRECTORIES(${TEST_APPVEYOR_LIB} PUBLIC
                            $<BUILD_INTERFACE:${TEST_APPVEYOR_LIB_INC}>
-                           $<INSTALL_INTERFACE:${KHIVA_INSTALL_INC_DIR}>
-                           ${Eigen3_INCLUDE_DIRS})
+                           $<INSTALL_INTERFACE:${KHIVA_INSTALL_INC_DIR}>)
 
 
 # Declare compilation libraries

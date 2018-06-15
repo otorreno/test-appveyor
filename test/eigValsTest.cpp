@@ -7,7 +7,7 @@
 #include <gtest/gtest.h>
 #include <test-appveyor.h>
 
-TEST(Tests, AddTrue) {
+TEST(TestsEigen, EigVals) {
     float coeffs[] = {2.0f, 2.0f, 2.0f};
     Eigen::scomplex *result = eigVals(coeffs, 3);
 
