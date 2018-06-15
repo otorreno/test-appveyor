@@ -8,6 +8,7 @@
                 "/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include",
                 "/Library/Developer/CommandLineTools/usr/include",
                 "/usr/include",
+                "/Users/oscar.torreno/Documents/repositories/third-party/vcpkg/installed/x64-osx/include",
                 "${workspaceRoot}/include"
             ],
             "defines": [],
@@ -19,6 +20,7 @@
                     "/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include",
                     "/Library/Developer/CommandLineTools/usr/include",
                     "/usr/include",
+                    "/Users/oscar.torreno/Documents/repositories/third-party/vcpkg/installed/x64-osx/include",
                     "${workspaceRoot}/include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,

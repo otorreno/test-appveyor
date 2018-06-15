@@ -7,6 +7,6 @@
 #include <gtest/gtest.h>
 #include <test-appveyor.h>
 
-TEST(Tests, AddOk) { ASSERT_EQ(add(1, 2), 3); }
+TEST(Tests, AddTrue) { ASSERT_EQ(add(1, 2), 3); }
 
-TEST(Tests, AddFail) { ASSERT_EQ(add(1, 2), 4); }
+TEST(Tests, AddFalse) { ASSERT_NE(add(1, 2), 4); }
