@@ -11,7 +11,7 @@ cache:
 clone_folder: C:\test-appveyor
 
 before_build:
-    - vcpkg install --triplet x64-windows gtest
+    - vcpkg install --triplet x64-windows gtest eigen3
 build_script:
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake -G"%GENERATOR%"
