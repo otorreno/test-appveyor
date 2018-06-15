@@ -16,7 +16,7 @@ before_build:
     - vcpkg install --triplet x64-windows gtest eigen3
     - appveyor DownloadFile "https://drive.google.com/uc?authuser=0&id=1WGV7kAs5kSgUei2qeCfwFjTmzm1l63FX&export=download" -FileName ArrayFire-d920eae2.exe
     - ArrayFire-d920eae2.exe /S
-    - dir %AF_ROOT%
+    - dir "%AF_ROOT%"
 build_script:
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake -G"%GENERATOR%"
