@@ -5,14 +5,8 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 #include <arrayfire.h>
-#include <Eigen/EigenValues>
+#include <test-appveyor.h>
 
-int add(int lhs, int rhs);
+af::array afRange(int n) { return af::range(n); }
 
-Eigen::scomplex *eigVals(float coeffs[], int n);
-
-float pvalue(long df, float test);
-
-af::array afRange(int n);
-
-int afBackends();
+int afBackends() { return af::getAvailableBackends(); }

@@ -7,6 +7,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.9.6)
 PROJECT(TEST_APPVEYOR_LIB)
 
+FIND_PACKAGE(ArrayFire REQUIRED)
+
 FIND_PACKAGE(Boost REQUIRED)
 
 FIND_PACKAGE(Eigen3 CONFIG REQUIRED)
@@ -22,6 +24,9 @@ FILE(GLOB_RECURSE TEST_APPVEYOR_LIB_CODE
     "${TEST_APPVEYOR_LIB_SRC}/*.cpp"
     "${TEST_APPVEYOR_LIB_INC}/*.h" )
 
+# Compile using unified backend
+ADD_DEFINITIONS(-DAF_UNIFIED)
+
 # The output is a static library
 ADD_LIBRARY(${TEST_APPVEYOR_LIB} STATIC ${TEST_APPVEYOR_LIB_CODE} )
 
@@ -29,11 +34,12 @@ ADD_LIBRARY(${TEST_APPVEYOR_LIB} STATIC ${TEST_APPVEYOR_LIB_CODE} )
 TARGET_INCLUDE_DIRECTORIES(${TEST_APPVEYOR_LIB} PUBLIC
                            $<BUILD_INTERFACE:${TEST_APPVEYOR_LIB_INC}>
                            $<INSTALL_INTERFACE:${KHIVA_INSTALL_INC_DIR}>
+                           ${ArrayFire_INCLUDE_DIRS}
                            ${Boost_INCLUDE_DIRS})
-
 
 # Declare compilation libraries
 TARGET_LINK_LIBRARIES(${TEST_APPVEYOR_LIB}
+                ${ArrayFire_Unified_LIBRARIES}
                 Eigen3::Eigen
                 ${Boost_LIBRARIES}
                 ${CMAKE_DL_LIBS})

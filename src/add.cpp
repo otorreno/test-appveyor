@@ -6,4 +6,4 @@
 
 #include <test-appveyor.h>
 
-int add(int a, int b) { return a + b; }
+int add(int lhs, int rhs) { return lhs + rhs; }
