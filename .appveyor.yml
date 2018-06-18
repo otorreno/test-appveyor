@@ -26,7 +26,7 @@ test_script:
     - ctest -C Release --no-compress-output --output-on-failure -T test
 on_finish:
     - ps: |
-        $xsl = ".CI\appveyor\ctest-to-junit.xsl" 
+        $xsl = (Resolve-Path ..\.CI\appveyor\ctest-to-junit.xsl)
         $ctest_xml = (Resolve-Path .\Testing\**\Test.xml)
         $junit_xml = ".\build\Testing\results-junit.xml"
         $junit_xml2 = ".\Testing\results-junit.xml"
