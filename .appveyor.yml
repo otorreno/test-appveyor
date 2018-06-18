@@ -3,7 +3,7 @@ image:
 environment:
     BOOST_ROOT: C:\Libraries\boost_1_67_0
     AF_PATH: C:\Program Files\ArrayFire\v3
-    PATH: $(AF_PATH)\lib;%(PATH)
+    PATH: $(AF_PATH)\lib;$(PATH)
     matrix:
         - GENERATOR: "Visual Studio 15 Win64"
 platform:
