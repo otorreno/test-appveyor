@@ -21,6 +21,8 @@ before_build:
 build_script:
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake -G"%GENERATOR%"
-    - cmake --build . --config Release
+    - cmake --build . --config Release -- /m
 test_script:
-    - ctest -C Release -V --output-on-failure
+    - ctest -C Release --no-compress-output --output-on-failure -T test
+on_finish:
+  - ps: (New-Object System.Net.WebClient).UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\Testing\**\Test.xml))
