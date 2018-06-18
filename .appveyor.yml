@@ -21,7 +21,6 @@ before_build:
     - dir "C:\Program Files\ArrayFire\v3\lib"
     - echo %PATH%
 build_script:
-    - rmdir build /Q
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake -G"%GENERATOR%"
     - cmake --build . --config Release
