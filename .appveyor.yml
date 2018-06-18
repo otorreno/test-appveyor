@@ -17,9 +17,7 @@ before_build:
     - appveyor DownloadFile "https://www.dropbox.com/s/ndt1eaouriiu4qi/ArrayFire-v3.5.1.zip?dl=1" -FileName ArrayFire-v3.5.1.zip
     - 7z x ArrayFire-v3.5.1.zip -o"C:\Program Files"
     - reg add HKCU\Software\Kitware\CMake\Packages\ArrayFire /v ArrayFire_CMake_DIR /d "C:\Program Files\ArrayFire\v3\cmake" /f
-    - reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v AF_PATH /d "C:\Program Files\ArrayFire\v3" /f
-    - reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v AF_PATH_v3 /d "C:\Program Files\ArrayFire\v3" /f
-    - reg add "HKCU\Environment" /v PATH /d "%PATH%;%AF_PATH%\lib" /f
+    - reg add "HKCU\Environment" /v PATH /d "C:\Program Files\ArrayFire\v3\lib" /f
 build_script:
     - mkdir build && cd build
     - cmake .. -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake -G"%GENERATOR%"
