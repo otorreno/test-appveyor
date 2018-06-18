@@ -27,7 +27,7 @@ test_script:
 on_finish:
   - ps: |
     $xsl = ".CI\appveyor\ctest-to-junit.xsl" 
-    $ctest_xml = (Resolve-Path .\Testing\**\Test.xml)
+    $ctest_xml = (Resolve-Path ".\Testing\**\Test.xml")
     $junit_xml = ".\build\Testing\results-junit.xml"
     $xslt = New-Object System.Xml.Xsl.XslCompiledTransform 
     $xslt.Load($xsl) 
