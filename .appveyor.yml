@@ -32,6 +32,4 @@ on_finish:
         $xslt = New-Object System.Xml.Xsl.XslCompiledTransform 
         $xslt.Load($xsl) 
         $xslt.Transform($ctest_xml, $junit_xml) 
-        dir Testing
         (New-Object System.Net.WebClient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)","C:\test-appveyor\build\Testing\results-junit.xml")
-        Get-Content -Path (Resolve-Path $junit_xml)
